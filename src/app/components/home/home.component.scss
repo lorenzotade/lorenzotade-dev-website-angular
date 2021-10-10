@@ -1,0 +1,76 @@
+main {
+  min-height: 100vh;
+  padding-top: 60px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  &::after {
+    content: '';
+    background-image: url("../../../assets/img/jumbotron.jpg");
+    background-size: cover;
+    background-position: center;
+    position:absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+  .intro {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    min-width: 35%;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,.75);
+    h1 {
+      font-size: 4em;
+      letter-spacing: .1em;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.6em;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: .07em;
+      margin-bottom: 50px;
+    }
+    h3 {
+      font-size: 2.5em;
+      font-weight: 600;
+      letter-spacing: .07em;
+      margin-bottom: 70px;
+    }
+    a {
+      border: 3px solid #352259;
+      border-radius: 20px;
+      padding: 5px 10px;
+      color: #352259;
+      font-size: 16px;
+      font-weight: 700;
+      i {
+        margin-right: 10px;
+      }
+    }
+    span {
+      color: #352259;
+    }
+  }
+}
+
+@media screen and (max-width: 904px) {
+  main#home div h1 {
+    font-size: 3em;
+  }
+  main#home div h2 {
+    font-size: 1.4em;
+  }
+  main#home div h3 {
+    font-size: 2em;
+  }
+
+}

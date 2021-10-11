@@ -1,1 +1,38 @@
-<button (click)="logOut()">Log Out</button>
+<section id="contacts" class="container">
+
+  <div class="text-container">
+
+    <button (click)="logOut()">Log Out</button>
+
+    <h1>Inserisci un progetto</h1>
+
+    <form #f="ngForm" (submit)="uploadImg(f.value, event); f.resetForm()">
+
+      <label for="title">Titolo</label>
+      <input type="text" name="title" id="title" [ngModel]="project.title">
+
+      <label for="description">Descrizione</label>
+      <textarea name="description" id="description" [ngModel]="project.description"></textarea>
+
+      <label for="link">Link GitHub</label>
+      <input type="text" name="link" id="link" [ngModel]="project.link">
+
+      <label for="imgPath">Immagine</label>
+      <input
+        type="file"
+        accept="image/png, image/gif, image/jpeg"
+        name="imgPath"
+        id="imgPath"
+        alt="Screen {{project.title}}"
+        (change)="this.event = $event"
+      >
+
+      <!--<input type="text" name="imgUrl" id="imgUrl" [(ngModel)]="imgUrl" hidden>-->
+
+      <button>Invia</button>
+
+    </form>
+
+  </div>
+
+</section>

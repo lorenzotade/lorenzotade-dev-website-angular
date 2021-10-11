@@ -7,6 +7,9 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
 
+  isSuccessful: boolean = true;
+  error?: any;
+
   constructor(
     public afAuth: AngularFireAuth,
     private router: Router
@@ -16,8 +19,9 @@ export class AuthService {
     this.afAuth.signInWithEmailAndPassword(email, password)
       .then(() => {
         this.router.navigate(['/admin']);
-      }).catch((err:any) => {
-      console.log('An error occurred: ', err);
+      }).catch((err: any) => {
+        this.isSuccessful = false;
+        this.error = err;
     });
   }
 

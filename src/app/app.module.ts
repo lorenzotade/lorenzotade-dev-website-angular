@@ -20,6 +20,9 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AuthService } from "./services/auth.service";
 import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireStorageModule } from "@angular/fire/compat/storage";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {ProjectService} from "./services/project.service";
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { AngularFireModule } from "@angular/fire/compat";
 		BrowserModule,
 		AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
+    AngularFirestoreModule,
 		BrowserAnimationsModule,
 		FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -46,7 +51,8 @@ import { AngularFireModule } from "@angular/fire/compat";
   providers: [
     ScreenTrackingService,
     UserTrackingService,
-    AuthService
+    AuthService,
+    ProjectService
   ],
   bootstrap: [AppComponent]
 })

@@ -106,6 +106,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "lorenzotade-dev-website-angular:build:production",
+            "firebaseProject": "lorenzotade-dev",
+            "firebaseHostingSite": "lorenzotade-dev"
+          }
         }
       }
     }

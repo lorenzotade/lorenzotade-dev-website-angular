@@ -1,0 +1,33 @@
+<section id="contacts" class="container">
+
+  <div class="text-container">
+
+    <h1>Log In</h1>
+
+    <div class="flex-container">
+
+      <form #f="ngForm" (submit)="logIn(f.value)">
+
+        <div [class]="!valid ? 'error' : ''" *ngIf="!valid">Inserire i campi richiesti.</div>
+        <div [class]="!authService.isSuccessful ? 'error' : ''" *ngIf="!authService.isSuccessful">
+          <p>La richiesta non è andata a buon fine.</p>
+          <p>Errore: {{authService.error}}</p>
+        </div>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" [ngModel]="email" />
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" [ngModel]="password" />
+
+      <div class="right">
+        <button>Log In</button>
+      </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>

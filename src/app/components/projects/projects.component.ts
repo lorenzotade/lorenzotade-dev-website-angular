@@ -28,7 +28,7 @@ export class ProjectsComponent implements OnInit {
       .snapshotChanges()
       .pipe(
         map(changes =>
-          changes.map(c =>
+          changes.map((c:any) =>
             ({ id: c.payload.doc.id, ...c.payload.doc.data() })
           )
         )

@@ -9,21 +9,17 @@ import { AboutComponent } from './components/about/about.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDH_fzz6C0f4kptb6OHgUB_0NoG45rOSbU",
-  authDomain: "lorenzotade-dev.firebaseapp.com",
-  projectId: "lorenzotade-dev",
-  storageBucket: "lorenzotade-dev.appspot.com",
-  messagingSenderId: "954541795844",
-  appId: "1:954541795844:web:a140bab5d840251819a351",
-  measurementId: "G-6NBKF9BF13"
-};
-
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+import { AdminComponent } from './components/admin/admin.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from "@angular/forms";
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AuthService } from "./services/auth.service";
+import { AngularFireModule } from "@angular/fire/compat";
 
 @NgModule({
   declarations: [
@@ -31,14 +27,27 @@ const analytics = getAnalytics(app);
     HomeComponent,
     AboutComponent,
     ProjectsComponent,
-    ContactsComponent
+    ContactsComponent,
+    AdminComponent,
+    LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+		BrowserAnimationsModule,
+		FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAnalytics(() => getAnalytics()),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore())
+	],
+  providers: [
+    ScreenTrackingService,
+    UserTrackingService,
+    AuthService
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

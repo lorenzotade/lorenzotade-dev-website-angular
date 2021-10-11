@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "lorenzotade-dev"
+  },
+  "targets": {
+    "lorenzotade-dev": {
+      "hosting": {
+        "lorenzotade-dev-website-angular": [
+          "lorenzotade-dev"
+        ]
+      }
+    }
   }
 }

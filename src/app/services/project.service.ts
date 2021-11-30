@@ -18,7 +18,7 @@ export class ProjectService {
       this.db
         .collection('Projects')
         .add(project)
-        .then(() => {}, err => reject(err));
+        .then(() => {}, (err: any) => reject(err));
     });
   }
 

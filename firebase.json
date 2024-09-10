@@ -1,12 +1,6 @@
 {
   "hosting": {
-    "public": "dist/lorenzotade-dev-website-angular",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "rewrites": [
-      {
-        "source": "admin",
-        "destination": "/admin"
-      }
-    ]
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }

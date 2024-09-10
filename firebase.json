@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/lorenzotade-dev-website-angular/index.html",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }

@@ -1,0 +1,48 @@
+section {
+  padding-top: 140px;
+  background-color: #AB8ACB;
+  padding-bottom: 110px;
+
+  .text-container {
+    min-height: 100%;
+    width: 100%;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,.5);
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+  h1 {
+    text-align: center;
+    font-size: 4em;
+    margin-bottom: 30px;
+  }
+  p {
+    width: 100%;
+    white-space: pre-line;
+    font-size: 22px;
+    letter-spacing: .03em;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 904px) {
+  section div h1 {
+    font-size: 3em;
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    p {
+      float: none;
+      width: 100%;
+      margin-bottom: 40px;
+      padding-right: 0;
+      text-align: left;
+    }
+  }
+
+}

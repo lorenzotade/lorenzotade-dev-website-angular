@@ -11,18 +11,24 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule } from "@angular/forms";
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { FormsModule } from '@angular/forms';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { AuthService } from "./services/auth.service";
-import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFireStorageModule } from "@angular/fire/compat/storage";
-import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
-import {ProjectService} from "./services/project.service";
+import {
+  provideAnalytics,
+  getAnalytics,
+  ScreenTrackingService,
+  UserTrackingService,
+} from '@angular/fire/analytics';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { AuthService } from './services/auth.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { ProjectService } from './services/project.service';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -32,28 +38,29 @@ import {ProjectService} from "./services/project.service";
     ProjectsComponent,
     ContactsComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent,
   ],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
-		BrowserAnimationsModule,
-		FormsModule,
+    BrowserAnimationsModule,
+    FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
-	],
+    provideFirestore(() => getFirestore()),
+  ],
   providers: [
     ScreenTrackingService,
     UserTrackingService,
     AuthService,
-    ProjectService
+    ProjectService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
